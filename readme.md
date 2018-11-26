@@ -346,7 +346,12 @@ DT_HASH_SEGMENT		0xB5EF30
 ```
 # 6.00 Offsets
 ```
-KERN_XFAST_SYSCALL 0x00001C0
+#define KERN_XFAST_SYSCALL 0x00001C0
+#define KERN_PRISON_0		
+#define KERN_ROOTVNODE		
+#define KERN_PROCESS_ASLR   
+#define KERN_PTRACE_CHECK 	
+#define DT_HASH_SEGMENT		
 
 ```
 Please make an pull request for anything that is missing or want to add something.
