@@ -1,13 +1,70 @@
-# PS4Offsets & Payloads 1.76/4.05/4.55/5.01/5.05
-
-<p align="center">
-🔥 PS4Offsets ~ Use these offsets if you need to update your old payloads. 🔥
-  <br>
-</p>
+## PS4Offsets 1.76/3.55/3.70/4.05/4.55/4.75/5.01/5.05/6.00
 
 # 3.55
+#define KERN_XFAST_SYSCALL 0x3A1F10
+#define KERN_PRISON_0 0x406E82
+#define KERN_ROOTVNODE		
+#define KERN_PROCESS_ASLR 0x406E80
+#define KERN_PTRACE_CHECK 
+#define DT_HASH_SEGMENT		
+
+```
+#define kern_off_printf 0x1df550
+#define kern_off_copyin 0x3b96e0
+#define kern_off_copyout 0x3b9660
+#define kern_off_copyinstr 0x3b9a50
+#define kern_off_kmem_alloc_contig 0x337ea0
+#define kern_off_kmem_free 0x33bca0
+#define kern_off_pmap_extract 0x3afd70
+#define kern_off_pmap_protect 0x3b1f50
+#define kern_off_sched_pin 0x1ced60
+#define kern_off_sched_unpin 0x1cedc0
+#define kern_off_smp_rendezvous 0x1e7810
+#define kern_off_smp_no_rendevous_barrier 0x1e75d0
+#define kern_off_icc_query_nowait 0x3ed450
+#define kern_off_kernel_map 0x196acc8
+#define kern_off_sysent 0xeed880
+#define kern_off_kernel_pmap_store 0x19bd628
+#define kern_off_Starsha_UcodeInfo 0x1869fa0
+
+#define kern_off_pml4pml4i 0x19bd618
+#define kern_off_dmpml4i 0x19bd61c
+#define kern_off_dmpdpi 0x19bd620
+```
 
 # 3.70
+#define KERN_XFAST_SYSCALL 
+#define KERN_PRISON_0		
+#define KERN_ROOTVNODE		
+#define KERN_PROCESS_ASLR   
+#define KERN_PTRACE_CHECK 	
+#define DT_HASH_SEGMENT		
+
+```
+#define kern_off_printf 0x1df620
+#define kern_off_copyin 0x3b97d0
+#define kern_off_copyout 0x3b9750
+#define kern_off_copyinstr 0x3b9b40
+#define kern_off_kmem_alloc_contig 0x337f70
+#define kern_off_kmem_free 0x33bd70
+#define kern_off_pmap_extract 0x3afe60
+#define kern_off_pmap_protect 0x3b2040
+#define kern_off_sched_pin 0x1cee30
+#define kern_off_sched_unpin 0x1cee90
+#define kern_off_smp_rendezvous 0x1e78e0
+#define kern_off_smp_no_rendevous_barrier 0x1e76a0
+#define kern_off_icc_query_nowait 0x3ed7f0
+#define kern_off_kernel_map 0x1976cc8
+#define kern_off_sysent 0xef6d90
+#define kern_off_kernel_pmap_store 0x19c9628
+#define kern_off_Starsha_UcodeInfo 0
+#define kern_off_gpu_devid_is_9924 0x443a20
+#define kern_off_gc_get_fw_info 0x44b5a0
+
+#define kern_off_pml4pml4i 0x19c9618
+#define kern_off_dmpml4i 0x19c961c
+#define kern_off_dmpdpi 0x19c9620
+```
 
 # 4.05
 ```
@@ -25,7 +82,18 @@ uint64_t *(sceRegMgrSetInt)(uint32_t regId, int value) = NULL;
 sceRegMgrSetInt = (void *)&ptrKernel[KERNEL_REGMGR_SETINT];
 sceRegMgrSetInt(0x3C040000, 0);
 
-Will add more soon.
+// uart enabler
+*(char *)(kernel_base + 0x186b0a0) = 0;
+
+// debug menu full patches thanks to sealab
+*(uint32_t *)(kernel_base + 0x4CECB7) = 0;
+*(uint32_t *)(kernel_base + 0x4CFB9B) = 0;
+
+// Target ID Patches :)
+
+*(uint16_t *)(kernel_base + 0x1FE59E4) = 0x8101;
+*(uint16_t *)(kernel_base + 0X1FE5A2C) = 0x8101;
+*(uint16_t *)(kernel_base + 0x200151C) = 0x8101;
 ```
 
 # 4.55  
