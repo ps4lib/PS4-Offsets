@@ -35,13 +35,14 @@
 ```
 
 # 3.70
+```
 #define KERN_XFAST_SYSCALL 
 #define KERN_PRISON_0		
 #define KERN_ROOTVNODE		
 #define KERN_PROCESS_ASLR   
 #define KERN_PTRACE_CHECK 	
 #define DT_HASH_SEGMENT		
-
+```
 ```
 #define kern_off_printf 0x1df620
 #define kern_off_copyin 0x3b97d0
